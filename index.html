@@ -7,6 +7,20 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="shortcut icon" href="#" />
 <script>
+
+function get_request()
+{
+	var request = new XMLHttpRequest();
+	request.open("GET", “url”, true);  
+	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	request.onreadystatechange = function()
+	{
+	    if (request.readyState == 4 && request.status == 200)
+	    {
+			
+	    }
+	}
+}
 </script>
 
 Here
