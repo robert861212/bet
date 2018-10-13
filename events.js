@@ -16,7 +16,7 @@ nextButton = document.getElementById("next");
 prevButton = document.getElementById("previous");
 let lat_lng;
 let shown_list;
-let vibeList;
+let vibeList = [];
 var currentElement;
 
 
