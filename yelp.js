@@ -10,10 +10,11 @@ var request = new XMLHttpRequest();
 		{
 			var string = request.responseText;
 			// var object = JSON.parse(string);
-			// console.log(string);
+			console.log(string);
 		}
 	}
-	parameter = "lat=42.4048&lng=-71.1161&category=restaurant&distance=5;"
+	parameter = "lat=" + getCookie("lat") + "&lng=" getCookie("lng") + "&category=" + getCookie("category")
+	+ "&distance=" + getCookie("distance") + ";";
 	request.send(parameter);
 
 // function deleteAllCookies() {
@@ -26,10 +27,10 @@ var request = new XMLHttpRequest();
 //         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
 //     }
 // }
-console.log(getCookie("lat"));
-console.log(getCookie("lng"));
-console.log(getCookie("category"));
-console.log(getCookie("distance"));
+// console.log(getCookie("lat"));
+// console.log(getCookie("lng"));
+// console.log(getCookie("category"));
+// console.log(getCookie("distance"));
 
 
 function getCookie(cname) {
