@@ -76,21 +76,37 @@ var currentElement;
               "headers": {}
             }
 
+
+        }
+
             $.ajax(all_events).done(function (dataList) {
               // console.log(dataList);
                 console.log(dataList);
-                dataList.events.forEach( (data) => {vibeList.push(
-                        {
-                          name: "hh",
-                          // name: data.name.text,
+                       var objects_length = datalist.length;
+
+        for (i = 0; i < objects_length; i++){
+            vibeList.push({
+                          name: data.name.text,
                           location: data.start.timezone,
                           picture: data.logo.url,
                           description: data.description.html,
                           latitude: lat,
                           longitude: lng
-                        }
-                )});
-              } );
+            });
+        }
+                // dataList.events.forEach( (data) => {vibeList.push(
+                //         {
+                //           name: "hh",
+                //           // name: data.name.text,
+                //           location: data.start.timezone,
+                //           picture: data.logo.url,
+                //           description: data.description.html,
+                //           latitude: lat,
+                //           longitude: lng
+                //         }
+                // )});
+              //} );
+            console.log(vibeList);
 
             shuffleArray(vibeList);
             var element = vibeList.pop()
