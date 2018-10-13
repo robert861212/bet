@@ -153,6 +153,13 @@ app.get('/css/style.css', function(request, response) {
    	response.sendFile("css/style.css", {root:__dirname});
 });
 
+app.get('/js/scripts', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("js/scripts", {root:__dirname});
+});
+
 app.get('/events', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
