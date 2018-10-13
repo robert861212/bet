@@ -14,9 +14,10 @@ direction = document.getElementById("direction");
 call = document.getElementById("call_someone");
 nextButton = document.getElementById("next");
 prevButton = document.getElementById("previous");
-    shown_list = []
-    vibeList = []
-    var currentElement;
+let lat_lng;
+let shown_list = []
+let vibeList = []
+var currentElement;
 
 
 
@@ -24,7 +25,17 @@ prevButton = document.getElementById("previous");
 
     GetAddress();
 
-    function 
+    function initializeValues(cElement){
+        title.innerHTML = cElement.name;
+        distance.innerHTML = Math.floor(cElement.distance) + " miles away";
+        address.innerHTML = cElement.location;
+        call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
+        image_html.innerHTML = "<img src='"+ cElement.picture + "' style='height: 100%; width: 100%; object-fit: contain' />";
+        console.log(image_html.src);
+        lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
+        description.innerHTML = cElement.description;
+
+    }
     function getCookie(cname) {
              var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
              var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
@@ -44,10 +55,18 @@ prevButton = document.getElementById("previous");
                   array[j] = temp;
               }
           }
+
+      direction.addEventListener("click", ()=>
+                      {
+                        //load the google maps page passing in the latitude and longitude
+                        window.location.replace("https://www.google.com/maps?q=" + lat_lng.lat+","+lat_lng.lng);
+                      });
+
+
     function GetAddress() {
         returnList = [];
-        var lat = -33.865143 //getCookie("lat");
-        var lng = 151.209900 //getCookie("lng");
+        var lat =  getCookie("lat"); //-33.865143
+        var lng =  getCookie("lng"); //151.209900
         var sliderValue = 500; //getCookie("distance");
         var all_events = {
               "async": true,
@@ -63,39 +82,37 @@ prevButton = document.getElementById("previous");
                         {
                           name: data.name.text,
                           location: data.start.timezone,
-                          picture: data.logo.url
+                          picture: data.logo.url,
+                          description: data.description.html,
+                          latitude: lat,
+                          longitude: lng
                         }
                 )});
 
               } );
+            shuffleArray(vibeList);
+            var element = vibeList.pop()
+            shown_list.push(element);
+            initializeValues(element);
 
 
     }
 
-      shuffleArray(vibeList);
+      
+nextButton.addEventListener("click", ()=>
+                      {
+                          currentElement = vibeList.pop();
+                          shown_list.push(currentElement);
+                          initializeValues(currentElement);
+                      });
 
-      next.addEventListener("click", ()=>
-      {
-        currentElement = vibeList.pop();
-        shown_list.push(currentElement);
-
-
-
-        /*
-          Print the data based on the html layout by Jeff
-        */
-      });
-      previous.addEventListener("click", () =>
-      {
-
-        element = shown_list.shift();
-        shown_list.push(currentElement);
-        currentElement = element;
-
-
-      });
-
-
+prevButton.addEventListener("click", () =>
+                          {
+                              element = shown_list.shift();
+                              shown_list.push(currentElement);
+                              currentElement = element;
+                              initializeValues(currentElement);
+                          });
     
 
     // console.log(getCookie("lat"));

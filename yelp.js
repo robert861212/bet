@@ -101,7 +101,7 @@ function initializeValues(cElement)
   distance.innerHTML = Math.floor(cElement.distance) + " miles away";
   address.innerHTML = cElement.location;
   call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
-  image_html.innerHTML = "<img src="+ cElement.image + " />";
+  image_html.innerHTML = "<img src= '"+ cElement.image + "' style='height: 100%; width: 100%; object-fit: contain' />";
   console.log(image_html.src);
   lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
 
