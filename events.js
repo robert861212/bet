@@ -65,11 +65,11 @@ var lat =  -33.865143//getCookie("lat"); //
     function GetAddress() {
         returnList = [];
         
-            $.ajax("async": true,
+            $.ajax({"async": true,
               "crossDomain": true,
               "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
               "method": "GET",
-              "headers": {}).done(function (dataList) {
+              "headers": {}}).done(function (dataList) {
               // console.log(dataList);
                 console.log(dataList);
                  var objects_length = dataList.length;
@@ -97,7 +97,7 @@ var lat =  -33.865143//getCookie("lat"); //
             // initializeValues(element);
 
 
-            title.innerHTML = element.name;
+        title.innerHTML = element.name;
         distance.innerHTML = Math.floor(element.distance) + " miles away";
         address.innerHTML = element.location;
         call.href="tel:"+ (element.phone).replace(/\D/g,''); //stripping non numeric characters

@@ -331,6 +331,50 @@ app.get('/images/dollar.png', function(request, response) {
 
 
 
+app.get('/images/bars.svg', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/bars.svg", {root:__dirname});
+});
+app.get('/images/dollar@2x.png', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/dollar@2x.png", {root:__dirname});
+});app.get('/images/events.svg', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/events.svg", {root:__dirname});
+});app.get('/images/findvibes.svg', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/findvibes.svg", {root:__dirname});
+});app.get('/iimages/gotbet.svg', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/gotbet.svg", {root:__dirname});
+});app.get('/images/rest.svg', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/rest.svg", {root:__dirname});
+});app.get('/images/shops.svg', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/shops.svg", {root:__dirname});
+});app.get('/images/star@2x.png', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/star@2x.png", {root:__dirname});
+});
+
+
 
 
 app.listen(process.env.PORT || 3000);
