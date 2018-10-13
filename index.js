@@ -70,6 +70,7 @@ app.post('/yelp_bet', function(request, response) {
 			//sending response
 			console.log("b");
 		  result = response.jsonBody.businesses;
+		  console.log(result);
 		}).catch(e => {
 		  console.log(e);
 		});

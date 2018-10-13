@@ -28,27 +28,42 @@ if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
     myLat = position.coords.latitude;
     myLng = position.coords.longitude;
-      });
+
+
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "https://betgv.herokuapp.com/yelp_bet", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.onreadystatechange = function()
+    {
+        if (request.readyState == 4 && request.status == 200)
+        {
+      var string = request.responseText;
+      console.log(string);
+      // var object = JSON.parse(string);
+        }
+    }
+    parameter = "lat=" + myLat + "&lng=" + myLng + "&place="
+        + rand_loc + ";";
+
+    request.send(parameter);
+
+
+
+
+
+
+
+
+
+
+
+    });
   }
 else {
     alert("your browser does not support geolocation");
 }
 
 
-var request = new XMLHttpRequest();
-request.open("POST", "https://betgv.herokuapp.com/yelp_bet", true);
-request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-request.onreadystatechange = function()
-{
-    if (request.readyState == 4 && request.status == 200)
-    {
-  var string = request.responseText;
-  console.log(string);
-  var object = JSON.parse(string);
-    }
-}
-parameter = "lat=" + myLat + "&lng=" + myLng + "&place="
-    + rand_loc + ";";
 
-request.send(parameter);
 
