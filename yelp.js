@@ -53,7 +53,7 @@ function moveTouch(e) {
   e.preventDefault();
 };
 
-image = document.getElementById("image");
+image_html = document.getElementById("image");
 title = document.getElementById("title");
 distance = document.getElementById("distance");
 address = document.getElementById("address");
@@ -101,8 +101,8 @@ function initializeValues(cElement)
   distance.innerHTML = Math.floor(cElement.distance) + "miles away";
   address.innerHTML = cElement.location;
   call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
-  image.src = cElement.image;
-  console.log(image.src);
+  image_html.src = cElement.image;
+  console.log(image_html.src);
   lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
 
   var rating_len = Math.floor(cElement.rating);
