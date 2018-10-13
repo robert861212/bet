@@ -156,7 +156,7 @@ if (navigator.geolocation) {
                 // console.log(object[0].image_url);
 
                 document.getElementById("description-title").innerHTML = rand_action + " " + object[0].name + "!";
-                document.getElementById("image").innerHTML = "<image src=" + object[0].image_url + ">" ;
+                document.getElementById("image").innerHTML = "<image src='" + object[0].image_url + "' ' style='height: 100%; width: 100%; object-fit: contain'>" ;
                 initializeValues(cElement);
             }
         }
