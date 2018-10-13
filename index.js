@@ -38,7 +38,7 @@ app.get('/', function(request, response) {
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
    	response.set('Content-Type', 'text/html');
 
-   	response.send("index.html");
+   	response.send(index.html);
 			
 });
 
