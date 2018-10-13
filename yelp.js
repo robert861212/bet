@@ -10,7 +10,7 @@ var request = new XMLHttpRequest();
 		{
 			var string = request.responseText;
 			// var object = JSON.parse(string);
-			console.log(string);
+			// console.log(string);
 		}
 	}
 	parameter = "lat=42.4048&lng=-71.1161&category=restaurant&distance=5;"
