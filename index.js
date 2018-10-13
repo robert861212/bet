@@ -52,6 +52,7 @@ app.post('/yelp', function(request, response) {
    	response.set('Content-Type', 'text/html');
 	console.log("h");
    	var obj = request.body;
+   	var result;
    	if (obj.hasOwnProperty('lat') && obj.hasOwnProperty('lng') && obj.hasOwnProperty('category') && obj.hasOwnProperty('distance'))
    	{
       var lat = obj.lat;
@@ -70,7 +71,7 @@ app.post('/yelp', function(request, response) {
 			    radius : 8000,
 			    limit : 40
 			}).then(response => {
-			  response.send(response.jsonBody.businesses);
+			  result = response.jsonBody.businesses;
 			}).catch(e => {
 			  console.log(e);
 			});
@@ -94,7 +95,7 @@ app.post('/yelp', function(request, response) {
       
 
    	}
-   	// response.send("help");
+   	response.send(result);
 			
 });
 
