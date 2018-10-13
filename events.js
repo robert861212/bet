@@ -118,6 +118,8 @@ var currentElement;
     });
           }
 
+          GetAddress();
+
           
 nextButton.addEventListener("click", ()=>
                       {
