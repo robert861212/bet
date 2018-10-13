@@ -72,7 +72,15 @@
 let rand_loc;
 let rand_act;
 let cElement;
-
+image_html = document.getElementById("image");
+title = document.getElementById("title");
+distance = document.getElementById("distance");
+address = document.getElementById("address");
+rating = document.getElementById("rating");
+cost = document.getElementById("cost");
+direction = document.getElementById("direction");
+call = document.getElementById("call_someone");
+let lat_lng;
 function randomize(array){
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -94,54 +102,6 @@ function returnInput(){
     rand_loc = location[0];
     rand_action = action[0];
 }
-
-var myLat;
-var myLng;
-returnInput();
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        myLat = position.coords.latitude;
-        myLng = position.coords.longitude;
-
-        // returnInput();
-
-        var request = new XMLHttpRequest();
-        request.open("POST", "https://betgv.herokuapp.com/yelp_bet", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.onreadystatechange = function()
-        {
-            if (request.readyState == 4 && request.status == 200)
-            {
-                var string = request.responseText;
-                console.log(string);
-                var object = JSON.parse(string);
-                cElement = object[0];
-                console.log(rand_action + " " + object[0].name);
-                // console.log(object[0].image_url);
-
-                document.getElementById("description-title").innerHTML = rand_action + " " + object[0].name + "!";
-                // document.getElementById("image").innerHTML = "<image src=" + object[0].image_url + ">" ;
-            }
-        }
-        parameter = "lat=" + myLat + "&lng=" + myLng + "&place="
-            + rand_loc + ";";
-        console.log(parameter);
-        request.send(parameter);
-    });
-}
-else {
-    alert("Your browser does not support geolocation.");
-}
-
-image_html = document.getElementById("image");
-title = document.getElementById("title");
-distance = document.getElementById("distance");
-address = document.getElementById("address");
-rating = document.getElementById("rating");
-cost = document.getElementById("cost");
-direction = document.getElementById("direction");
-call = document.getElementById("call_someone");
-let lat_lng;
 
 function initializeValues(cElement)
 {
@@ -171,12 +131,54 @@ function initializeValues(cElement)
 
 }
 
+var myLat;
+var myLng;
+returnInput();
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        myLat = position.coords.latitude;
+        myLng = position.coords.longitude;
+
+        // returnInput();
+
+        var request = new XMLHttpRequest();
+        request.open("POST", "https://betgv.herokuapp.com/yelp_bet", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.onreadystatechange = function()
+        {
+            if (request.readyState == 4 && request.status == 200)
+            {
+                var string = request.responseText;
+                console.log(string);
+                var object = JSON.parse(string);
+                cElement = object[0];
+                console.log(rand_action + " " + object[0].name);
+                // console.log(object[0].image_url);
+
+                document.getElementById("description-title").innerHTML = rand_action + " " + object[0].name + "!";
+                // document.getElementById("image").innerHTML = "<image src=" + object[0].image_url + ">" ;
+                initializeValues(cElement);
+            }
+        }
+        parameter = "lat=" + myLat + "&lng=" + myLng + "&place="
+            + rand_loc + ";";
+        console.log(parameter);
+        request.send(parameter);
+    });
+}
+else {
+    alert("Your browser does not support geolocation.");
+}
+
+\
+
+
+
 direction.addEventListener("click", ()=>
                            {
                                //load the google maps page passing in the latitude and longitude
                                window.location.replace("https://www.google.com/maps?q=" + lat_lng.lat+","+lat_lng.lng);
                            });
 
-initializeValues(cElement);
 
 
