@@ -77,7 +77,7 @@ var currentElement;
             $.ajax(all_events).done(function (dataList) {
               // console.log(dataList);
                 console.log(dataList);
-                 var objects_length = datalist.length;
+                 var objects_length = dataList.length;
 
                 for (i = 0; i < objects_length; i++){
                       data = dataList[i];
