@@ -17,12 +17,6 @@ body, h1,h2,h3,h4,h5,p {
     padding-bottom: 5%;
     padding-top: 5%;
   }
-  
-  .main-nav {
-    list-style-type: none;
-    display: none;
-  }
-  
 
 
   .nav-menu{ width: 100%; text-align: center; }
@@ -185,7 +179,7 @@ body, h1,h2,h3,h4,h5,p {
   border-radius: 14px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
   background-image: linear-gradient(111deg, #93d5d5, #6dcccc);
-
+  outline: none;
 }
 
 
@@ -240,4 +234,10 @@ body, h1,h2,h3,h4,h5,p {
   font-size: 15px;
   padding: 3%;
   text-align: center;
+}
+
+/* logo button */
+
+.logobutton {
+
 }
