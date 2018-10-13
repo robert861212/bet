@@ -5,7 +5,8 @@ if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
-		document.cookie += "lat=" + myLat + ";lng=" + myLng; 
+		document.cookie += "lat=" + myLat; 
+		document.cookie += "lng=" + myLng;
 	    });
 	}
 else {
