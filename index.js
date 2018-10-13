@@ -166,6 +166,22 @@ app.get('/bet', function(request, response) {
    	response.sendFile("bet.html", {root:__dirname});		
 });
 
+app.get('/get_bet', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+
+      response.sendFile("get_bet.html", {root:__dirname});      
+});
+
+app.get('/get_bet.js', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+
+      response.sendFile("get_bet.js", {root:__dirname});      
+});
+
 app.get('/group', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
