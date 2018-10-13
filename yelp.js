@@ -91,7 +91,7 @@ request.onreadystatechange = function()
     if (request.readyState == 4 && request.status == 200)
     {
 	var string = request.responseText;
-	console.log(string);
+	// console.log(string);
 	var object = JSON.parse(string);
         var objects_length = object.length;
 
@@ -109,7 +109,7 @@ request.onreadystatechange = function()
             });
         }
         randomize(yelpDict);
-        console.log(yelpDict);
+        // console.log(yelpDict);
     }
 }
 parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category="
