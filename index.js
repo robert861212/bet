@@ -45,14 +45,14 @@ const apiKey = 'SpJmEVEugu3-OUeP_w73yPHrghCRFvB31oy40Wvwz66wnXmc5I9l2iBbFLYo1Fkk
 const client = yelp.client(apiKey);
 
 
-
+let result;
 app.post('/yelp', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
    	response.set('Content-Type', 'text/html');
 	console.log("h");
    	var obj = request.body;
-   	var result;
+   	
    	if (obj.hasOwnProperty('lat') && obj.hasOwnProperty('lng') && obj.hasOwnProperty('category') && obj.hasOwnProperty('distance'))
    	{
       var lat = obj.lat;
