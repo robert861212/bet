@@ -352,7 +352,7 @@ app.get('/images/dollar@2x.png', function(request, response) {
       response.header("Access-Control-Allow-Headers", "X-Requested-With");
       // response.set('Content-Type', 'text/html');
       response.sendFile("images/findvibes.svg", {root:__dirname});
-});app.get('/iimages/gotbet.svg', function(request, response) {
+});app.get('/images/gotbet.svg', function(request, response) {
    response.header("Access-Control-Allow-Origin", "*");
       response.header("Access-Control-Allow-Headers", "X-Requested-With");
       response.set('Content-Type', 'text/svg');
