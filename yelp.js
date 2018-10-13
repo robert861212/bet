@@ -2,10 +2,10 @@
 var request = new XMLHttpRequest();
 	request.open("POST", "https://betgv.herokuapp.com/yelp", true);  
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	console.log("start");
+	// console.log("start");
 	request.onreadystatechange = function()
 	{
-		console.log("half");
+		// console.log("half")
 		if (request.readyState == 4 && request.status == 200)
 		{
 			var string = request.responseText;
