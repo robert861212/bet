@@ -22,17 +22,17 @@ var currentElement;
 
 
 
- function initializeValues(cElement){
-        title.innerHTML = cElement.name;
-        distance.innerHTML = Math.floor(cElement.distance) + " miles away";
-        address.innerHTML = cElement.location;
-        call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
-        image_html.innerHTML = "<img src='"+ cElement.picture + "' style='height: 100%; width: 100%; object-fit: contain' />";
-        console.log(image_html.src);
-        lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
-        description.innerHTML = cElement.description;
+ // function initializeValues(cElement){
+ //        title.innerHTML = cElement.name;
+ //        distance.innerHTML = Math.floor(cElement.distance) + " miles away";
+ //        address.innerHTML = cElement.location;
+ //        call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
+ //        image_html.innerHTML = "<img src='"+ cElement.picture + "' style='height: 100%; width: 100%; object-fit: contain' />";
+ //        console.log(image_html.src);
+ //        lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
+ //        description.innerHTML = cElement.description;
 
-    }
+ //    }
 
 
    
