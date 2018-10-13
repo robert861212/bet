@@ -14,6 +14,25 @@ else {
 function rest_page()
 {
 	window.location.href = "https://betgv.herokuapp.com/yelp";
+	document.cookie += "category=restaurants" 
+}
+
+function bars_page()
+{
+	window.location.href = "https://betgv.herokuapp.com/bars";
+	document.cookie += "category=bars" 
+}
+
+function shops_page()
+{
+	window.location.href = "https://betgv.herokuapp.com/shops";
+	document.cookie += "category=shops" 
+}
+
+function events_page()
+{
+	window.location.href = "https://betgv.herokuapp.com/events";
+	document.cookie += "category=events" 
 }
 
 // function deleteAllCookies() {
