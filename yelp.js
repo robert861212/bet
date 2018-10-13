@@ -26,20 +26,24 @@ var request = new XMLHttpRequest();
 //         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
 //     }
 // }
+console.log(getCookie("lat"));
+console.log(getCookie("lng"));
+console.log(getCookie("category"));
+console.log(getCookie("distance"));
 
 
-// function getCookie(cname) {
-//     var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
-//     var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
+function getCookie(cname) {
+    var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
+    var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
      
-//     //Loop through the cookies and return the cooki value if it find the cookie name
-//     for(var i=0; i<cArr.length; i++) {
-//         var c = cArr[i].trim();
-//         //If the name is the cookie string at position 0, we found the cookie and return the cookie value
-//         if (c.indexOf(name) == 0) 
-//             return c.substring(name.length, c.length);
-//     }
+    //Loop through the cookies and return the cooki value if it find the cookie name
+    for(var i=0; i<cArr.length; i++) {
+        var c = cArr[i].trim();
+        //If the name is the cookie string at position 0, we found the cookie and return the cookie value
+        if (c.indexOf(name) == 0) 
+            return c.substring(name.length, c.length);
+    }
      
-//     //If we get to this point, that means the cookie wasn't find in the look, we return an empty string.
-//     return "";
-// }
+    //If we get to this point, that means the cookie wasn't find in the look, we return an empty string.
+    return "";
+}
