@@ -78,6 +78,7 @@ var currentElement;
 
 
         }
+        GetAddress();
 
             $.ajax(all_events).done(function (dataList) {
               // console.log(dataList);
@@ -115,7 +116,7 @@ var currentElement;
             initializeValues(element);
     });
 
-          GetAddress();
+          
 nextButton.addEventListener("click", ()=>
                       {
                           currentElement = vibeList.pop();
