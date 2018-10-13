@@ -23,7 +23,7 @@ var currentElement;
 
 
 
-    GetAddress();
+
 
    
     function getCookie(cname) {
@@ -97,7 +97,7 @@ var currentElement;
         description.innerHTML = cElement.description;
 
     }
-      
+          GetAddress();
 nextButton.addEventListener("click", ()=>
                       {
                           currentElement = vibeList.pop();

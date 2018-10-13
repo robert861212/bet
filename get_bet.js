@@ -150,8 +150,7 @@ function initializeValues(cElement)
     distance.innerHTML = Math.floor(cElement.distance.toFixed(2) / 1.609344 / 1000) + " miles away";
     address.innerHTML = cElement.location.address1;
     call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
-    image_html.innerHTML = "<img src="+ cElement.image + " />";
-    console.log(image_html.src);
+    image_html.innerHTML = "<img src='"+ cElement.image + "' />";
     lat_lng = {lat: cElement.coordinates.latitude, lng: cElement.coordinates.longitude};
 
     var rating_len = Math.floor(cElement.rating);
@@ -177,5 +176,7 @@ direction.addEventListener("click", ()=>
                                //load the google maps page passing in the latitude and longitude
                                window.location.replace("https://www.google.com/maps?q=" + lat_lng.lat+","+lat_lng.lng);
                            });
+
+initializeValues(cElement);
 
 
