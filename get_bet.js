@@ -24,12 +24,13 @@ var action = ["Sing a song at", "Dab at", "Do a Fortnite Dance at", "Squat 20 ti
 
 var myLat;
 var myLng;
+returnInput();
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
     myLat = position.coords.latitude;
     myLng = position.coords.longitude;
 
-
+    // returnInput();
 
     var request = new XMLHttpRequest();
     request.open("POST", "https://betgv.herokuapp.com/yelp_bet", true);
@@ -38,14 +39,15 @@ if (navigator.geolocation) {
     {
         if (request.readyState == 4 && request.status == 200)
         {
-      var string = request.responseText;
-      console.log(string);
-      // var object = JSON.parse(string);
+        var string = request.responseText;
+        // console.log(string);
+      var object = JSON.parse(string);
+      console.log(rand_action + " " + object[0].name);
         }
     }
     parameter = "lat=" + myLat + "&lng=" + myLng + "&place="
         + rand_loc + ";";
-
+    console.log(parameter);
     request.send(parameter);
 
 
