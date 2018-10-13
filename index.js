@@ -372,6 +372,11 @@ app.get('/images/dollar@2x.png', function(request, response) {
       response.header("Access-Control-Allow-Headers", "X-Requested-With");
       // response.set('Content-Type', 'text/html');
       response.sendFile("images/star@2x.png", {root:__dirname});
+});app.get('/images/getbetbg.png', function(request, response) {
+   response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      // response.set('Content-Type', 'text/html');
+      response.sendFile("images/getbetbg.png", {root:__dirname});
 });
 
 
