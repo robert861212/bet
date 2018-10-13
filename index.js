@@ -61,21 +61,36 @@ app.post('/yelp', function(request, response) {
       console.log("a");
       if (cat == 'restaurant')
       {
-      	console.log("b");
       	client.search({
-	    term: 'restaurants',
-	    latitude: lat,
-	    longitude: lng,
-	    open_now: true,
-	    radius : distance,
-	    limit : 50
-		}).then(response => {
-			//sending response
-			console.log("c");
-		  response.send(response.jsonBody.businesses);
-		}).catch(e => {
-		  console.log(e);
-		});
+    term: 'restaurants',
+    price: 1,
+    latitude: "42.4048",
+    longitude: "-71.1161",
+    open_now: true,
+    radius : 8000,
+    limit : 40
+}).then(response => {
+  const firstResult = response.jsonBody.businesses;
+  const prettyJson = JSON.stringify(firstResult, null, 4);
+  console.log(prettyJson);
+}).catch(e => {
+  console.log(e);
+});
+  //     	console.log("b");
+  //     	client.search({
+	 //    term: 'restaurants',
+	 //    latitude: lat,
+	 //    longitude: lng,
+	 //    open_now: true,
+	 //    radius : distance,
+	 //    limit : 50
+		// }).then(response => {
+		// 	//sending response
+		// 	console.log("c");
+		//   response.send(response.jsonBody.businesses);
+		// }).catch(e => {
+		//   console.log(e);
+		// });
       }
       
       
