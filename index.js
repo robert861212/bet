@@ -45,18 +45,18 @@ const apiKey = 'SpJmEVEugu3-OUeP_w73yPHrghCRFvB31oy40Wvwz66wnXmc5I9l2iBbFLYo1Fkk
 const client = yelp.client(apiKey);
 
 let bet;
-app.post('/yelpbet', function(request, response) {
+app.post('/yelp_bet', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
    	response.set('Content-Type', 'text/html');
 	// console.log("h");
    	var obj = request.body;
    	
-   	if (obj.hasOwnProperty('lat') && obj.hasOwnProperty('lng') && obj.hasOwnProperty('word'))
+   	if (obj.hasOwnProperty('lat') && obj.hasOwnProperty('lng') && obj.hasOwnProperty('place'))
    	{
       var lat = obj.lat.toString();
       var lng = obj.lng.toString();
-      var word = obj.word;
+      var place = obj.place;
       var distance = 2.5 * 1000 * 1.6;
       
       	client.search({

@@ -1,6 +1,5 @@
-
-
-
+let rand_loc;
+let rand_act;
 function randomize(array){
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -19,7 +18,8 @@ var action = ["Sing a song at", "Dab at", "Do a Fortnite Dance at", "Squat 20 ti
               "Walk at an extremely slow pace in"];
     randomize(location);
     randomize(action);
-
+    rand_loc = location[0];
+    rand_action = action[0];
 }
 
 var myLat;
@@ -28,9 +28,6 @@ if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
     myLat = position.coords.latitude;
     myLng = position.coords.longitude;
-    deleteAllCookies();
-    document.cookie = "lat=" + myLat + "; "; 
-    document.cookie = "lng=" + myLng + "; ";
       });
   }
 else {
@@ -39,19 +36,19 @@ else {
 
 
 var request = new XMLHttpRequest();
-request.open("POST", "https://betgv.herokuapp.com/yelp", true);
+request.open("POST", "https://betgv.herokuapp.com/yelp_bet", true);
 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 request.onreadystatechange = function()
 {
     if (request.readyState == 4 && request.status == 200)
     {
   var string = request.responseText;
-  // console.log(string);
+  console.log(string);
   var object = JSON.parse(string);
     }
 }
-parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category="
-    + getCookie("category") + "&distance=" + getCookie("distance") + ";";
+parameter = "lat=" + myLat + "&lng=" + myLng + "&place="
+    + rand_loc + ";";
 
 request.send(parameter);
 
