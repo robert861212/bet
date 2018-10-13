@@ -94,6 +94,7 @@ var currentElement;
             shuffleArray(vibeList);
             var element = vibeList.pop()
             shown_list.push(element);
+            console.log(element);
             initializeValues(element);
     }
 
