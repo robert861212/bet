@@ -13,7 +13,7 @@ var request = new XMLHttpRequest();
 			console.log(string);
 		}
 	}
-	parameter = "lat=" + getCookie("lat") + "&lng=" getCookie("lng") + "&category=" + getCookie("category")
+	parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category=" + getCookie("category")
 	+ "&distance=" + getCookie("distance") + ";";
 	request.send(parameter);
 
