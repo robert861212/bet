@@ -1,61 +1,72 @@
+document.getElementById("image").addEventListener("touchstart", startTouch, false);
+document.getElementById("image").addEventListener("touchmove", moveTouch, false);
 
-// var request = new XMLHttpRequest();
-// 	request.open("POST", "https://betgv.herokuapp.com/yelp", true);  
-// 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-// 	// console.log("start");
-// 	request.onreadystatechange = function()
-// 	{
-// 		// console.log("half")
-// 		if (request.readyState == 4 && request.status == 200)
-// 		{
-// 			var string = request.responseText;
-// 			// var object = JSON.parse(string);
-// 			console.log(string);
-// 		}
-// 	}
-// 	parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category=" + getCookie("category")
-// 	+ "&distance=" + getCookie("distance") + ";";
-// 	request.send(parameter);
-// 	console.log(parameter);
-// // function deleteAllCookies() {
-// //     var cookies = document.cookie.split(";");
+// Swipe Up / Down / Left / Right
+var initialX = null;
+var initialY = null;
 
-// //     for (var i = 0; i < cookies.length; i++) {
-// //         var cookie = cookies[i];
-// //         var eqPos = cookie.indexOf("=");
-// //         var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-// //         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-// //     }
-// // }
-// // console.log(getCookie("lat"));
-// // console.log(getCookie("lng"));
-// // console.log(getCookie("category"));
-// // console.log(getCookie("distance"));
+function startTouch(e) {
+  initialX = e.touches[0].clientX;
+  initialY = e.touches[0].clientY;
+};
 
+function moveTouch(e) {
+  if (initialX === null) {
+    return;
+  }
 
-// function getCookie(cname) {
-//     var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
-//     var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
-     
-//     //Loop through the cookies and return the cooki value if it find the cookie name
-//     for(var i=0; i<cArr.length; i++) {
-//         var c = cArr[i].trim();
-//         //If the name is the cookie string at position 0, we found the cookie and return the cookie value
-//         if (c.indexOf(name) == 0) 
-//             return c.substring(name.length, c.length);
-//     }
-     
-//     //If we get to this point, that means the cookie wasn't find in the look, we return an empty string.
-//     return "";
-// }
+  if (initialY === null) {
+    return;
+  }
 
+  var currentX = e.touches[0].clientX;
+  var currentY = e.touches[0].clientY;
 
-div = document.getElementById("show_yelp_event");
-next_button = document.getElementById("next");
+  var diffX = initialX - currentX;
+  var diffY = initialY - currentY;
+
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    // sliding horizontally
+    if (diffX > 0) {
+      // swiped left
+      // add action here
+      console.log("swiped left");
+    } else {
+      // swiped right
+      // add action here
+      console.log("swiped right");
+    }
+  } else {
+    // sliding vertically
+    if (diffY > 0) {
+      // swiped up
+      console.log("swiped up");
+    } else {
+      // swiped down
+      console.log("swiped down");
+    }
+  }
+
+  initialX = null;
+  initialY = null;
+
+  e.preventDefault();
+};
+
+image = document.getElementById("image");
+title = document.getElementById("title");
+distance = document.getElementById("distance");
+address = document.getElementById("address");
+rating = document.getElementById("rating");
+cost = document.getElementById("cost");
+direction = document.getElementById("direction");
+call = document.getElementById("call_someone");
+nextButton = document.getElementById("next");
+prevButton = document.getElementById("previous");
+let lat_lng;
 let yelpDict = [];
-shown_list = [];
+let shown_list = [];
 let currentElement;
-previous_button = document.getElementById("previous");
 var request = new XMLHttpRequest();
 request.open("POST", "https://betgv.herokuapp.com/yelp", true);
 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -86,12 +97,43 @@ function randomize(array){
     }
 }
 
+function initializeValues(cElement)
+{
+
+  title.innerHTML = cElement.name;
+  distance.innerHTML = cElement.distance + "miles away";
+  address.innerHTML = cElement.location;
+  call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
+  image.src = cElement.image_url;
+  lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
+
+  var rating_len = Math.floor(cElement.rating);
+  for (i = 0; i < rating_len; i++) {
+    var img = document.createElement("img");
+    img.style = "star.png";
+    img.style = "display: inline;";
+    rating.appendChild(img);
+  }
+  var price_len = cElement.length;
+  for (i = 0; i < price_len; i++) {
+    var img = document.createElement("img");
+    img.src = "star.png";
+    img.style = "display: inline;";
+    rating.appendChild(img);
+  }
+  //callibrate the rating and cost with the stars
+  //img scaling
+
+}
+
+
+
 request.onreadystatechange = function()
 {
     if (request.readyState == 4 && request.status == 200)
     {
 	var string = request.responseText;
-	console.log(string);
+	// console.log(string);
 	var object = JSON.parse(string);
         var objects_length = object.length;
 
@@ -109,7 +151,9 @@ request.onreadystatechange = function()
             });
         }
         randomize(yelpDict);
-        // console.log(yelpDict);
+        var element = yelpDict.pop()
+        shown_list.push(element);
+        initializeValues(element);
     }
 }
 parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category="
@@ -118,15 +162,24 @@ parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category=
 request.send(parameter);
 // console.log(parameter);
 
-next.addEventListener("click", ()=>
+direction.addEventListener("click", ()=>
+                      {
+                        //load the google maps page passing in the latitude and longitude
+                        window.location.replace("http://stackoverflow.com?q="lat_lng.lat+","+lat_lng.lng);
+                      });
+
+
+nextButton.addEventListener("click", ()=>
                       {
                           currentElement = yelpDict.pop();
                           shown_list.push(currentElement);
+                          initializeValues(currentElement);
                       });
 
-previous.addEventListener("click", () =>
+prevButton.addEventListener("click", () =>
                           {
                               element = shown_list.shift();
                               shown_list.push(currentElement);
                               currentElement = element;
+                              initializeValues(currentElement);
                           });

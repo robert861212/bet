@@ -1,5 +1,4 @@
-
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
     <title>Bet</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    
+
     <!-- Font awesome icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
@@ -22,7 +21,7 @@
         crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <!-- Add link here to go back -->
@@ -31,9 +30,9 @@
                         <i class="fas fa-arrow-left"></i>
                 </span>
         </a>
-            
+
         <!-- <li>restaurants</li> -->
-            
+
     </nav>
     <style>
 
@@ -44,30 +43,36 @@
 <body>
 
         <!-- Add image below -->
-
+        <div id="image" class = "image-type" style = "align: center;" >
+        </div>
         <!-- Add title -->
-        <div class = "item-title" style = "text-align: center;">
+        <div id="title" class = "item-title" style = "text-align: center;">
             Chipotle
         </div>
 
         <!-- Add distance -->
-        <div class = "distance-text" style = "text-align: center;">
+        <div id="distance" class = "distance-text" style = "text-align: center;">
                 0.5 miles away
         </div>
 
         <!-- Add address -->
-        <div class = "address-text" style = "text-align: center;">
+        <div>
+          <button id="next" style = "text-align: left; float: left;">Next </button>
+          <button id="previous" style = "text-align: right; float: right;"> Previous </button>
+        </div>
+
+        <div id="address" class = "address-text" style = "text-align: center;">
                 276 Elm St, Somerville, MA 02144
         </div>
 
         <!-- Rating + Cost -->
-        
+
         <div class="row">
-                <div class="column">
-                    <p style = "text-align: center">Rating: </p>    
+                <div id="rating" class="column">
+                    <p style = "text-align: center">Rating: </p>
                 </div>
-                <div class="column">
-                    <p style = "text-align: center">Cost: </p>      
+                <div id="cost" class="column">
+                    <p style = "text-align: center">Cost: </p>
                 </div>
         </div>
 
@@ -76,16 +81,16 @@
         <div class="row" style = "padding-bottom: 3%; padding-top: 3%; ">
                 <!-- Call button -->
                 <div class="column">
-                    <button class="call_dir_button button_text">Call</button>   
+                    <a id="call_someone"><button class="call_dir_button button_text">Call</button></a>
                 </div>
                 <!-- Directions button -->
-                <div class="column">
-                        <button class="call_dir_button button_text" >Directions</button>   
+                <div id="direction" class="column">
+                        <button class="call_dir_button button_text" >Directions</button>
                 </div>
         </div >
 
         <!-- Description  -->
-        <div class = "description">
+        <div id= "description" class = "description">
             <!-- Don't touch this text -->
             <div class = "description-title">
                 Description
@@ -100,9 +105,8 @@
 
 
 
-        <script src="group.js"> </script>   
+        <script src="yelp.js"> </script>
 
 
 </body>
 </html>
-

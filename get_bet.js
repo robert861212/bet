@@ -39,10 +39,13 @@ if (navigator.geolocation) {
     {
         if (request.readyState == 4 && request.status == 200)
         {
-        var string = request.responseText;
-        // console.log(string);
-      var object = JSON.parse(string);
-      console.log(rand_action + " " + object[0].name);
+          var string = request.responseText;
+          console.log(string);
+          var object = JSON.parse(string);
+          console.log(rand_action + " " + object[0].name);
+          console.log(object[0].image_url);
+          document.getElementById("content").innerHTML = rand_action + " " + object[0].name;
+          document.getElementById("image").innerHTML = "<image src=" + object[0].image_url + ">" ;
         }
     }
     parameter = "lat=" + myLat + "&lng=" + myLng + "&place="
