@@ -18,6 +18,16 @@ let lat_lng;
 let shown_list = [];
 let vibeList = [];
 var currentElement;
+var lat =  -33.865143//getCookie("lat"); //
+        var lng =  51.209900//getCookie("lng"); //151.209900
+        var sliderValue = 500; //getCookie("distance");
+        var all_events = {
+              "async": true,
+              "crossDomain": true,
+              "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
+              "method": "GET",
+              "headers": {}
+            }
 
 
 
@@ -54,16 +64,7 @@ var currentElement;
 
     function GetAddress() {
         returnList = [];
-        var lat =  -33.865143//getCookie("lat"); //
-        var lng =  51.209900//getCookie("lng"); //151.209900
-        var sliderValue = 500; //getCookie("distance");
-        var all_events = {
-              "async": true,
-              "crossDomain": true,
-              "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
-              "method": "GET",
-              "headers": {}
-            }
+        
             $.ajax(all_events).done(function (dataList) {
               // console.log(dataList);
                 console.log(dataList);
