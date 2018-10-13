@@ -94,7 +94,7 @@ app.post('/yelp', function(request, response) {
       
 
    	}
-   	response.send("help");
+   	// response.send("help");
 			
 });
 
