@@ -101,23 +101,24 @@ function initializeValues(cElement)
 {
 
   title.innerHTML = cElement.name;
-  distance.innerHTML = cElement.distance + "miles away";
+  distance.innerHTML = Math.floor(cElement.distance) + "miles away";
   address.innerHTML = cElement.location;
   call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
   image.src = cElement.image_url;
+  console.log(image.src);
   lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
 
   var rating_len = Math.floor(cElement.rating);
   for (i = 0; i < rating_len; i++) {
     var img = document.createElement("img");
-    img.style = "star.png";
+    img.style = "images/star.png";
     img.style = "display: inline;";
     rating.appendChild(img);
   }
   var price_len = cElement.length;
   for (i = 0; i < price_len; i++) {
     var img = document.createElement("img");
-    img.src = "star.png";
+    img.src = "images/star.png";
     img.style = "display: inline;";
     rating.appendChild(img);
   }
