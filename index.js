@@ -93,9 +93,9 @@ app.post('/yelp', function(request, response) {
       // }
       
       
-
+    response.send(result);
    	}
-   	response.send(result);
+   	// response.send(result);
 			
 });
 
