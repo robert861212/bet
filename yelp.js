@@ -67,9 +67,6 @@ let lat_lng;
 let yelpDict = [];
 let shown_list = [];
 let currentElement;
-var request = new XMLHttpRequest();
-request.open("POST", "https://betgv.herokuapp.com/yelp", true);
-request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //console.log("start");
 
 function getCookie(cname) {
@@ -104,7 +101,7 @@ function initializeValues(cElement)
   distance.innerHTML = Math.floor(cElement.distance) + "miles away";
   address.innerHTML = cElement.location;
   call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
-  image.src = cElement.image_url;
+  image.src = cElement.image;
   console.log(image.src);
   lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
 
@@ -128,7 +125,9 @@ function initializeValues(cElement)
 }
 
 
-
+var request = new XMLHttpRequest();
+request.open("POST", "https://betgv.herokuapp.com/yelp", true);
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 request.onreadystatechange = function()
 {
     if (request.readyState == 4 && request.status == 200)
