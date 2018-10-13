@@ -15,10 +15,9 @@ call = document.getElementById("call_someone");
 nextButton = document.getElementById("next");
 prevButton = document.getElementById("previous");
 let lat_lng;
-let shown_list = [];
 let vibeList = [];
 var currentElement;
-
+let shown_list = [];
 
 
 
@@ -50,7 +49,6 @@ var currentElement;
         title.innerHTML = element.name;
         distance.innerHTML = Math.floor(element.distance) + " miles away";
         address.innerHTML = element.location;
-        call.href="tel:"+ (element.phone).replace(/\D/g,''); //stripping non numeric characters
         image_html.innerHTML = "<img src='"+ element.picture + "' style='height: 100%; width: 100%; object-fit: contain' />";
         console.log(image_html.src);
         lat_lng = {lat: element.latitude, lng: element.longitude};
@@ -66,10 +64,12 @@ var currentElement;
 
 
     function GetAddress() {
+      
+      
       var lat =  -33.865143//getCookie("lat"); //
-        var lng =  51.209900//getCookie("lng"); //151.209900
+        var lng =  151.209900//getCookie("lng"); //151.209900
         var sliderValue = 500; //getCookie("distance");
-        returnList = [];
+        
         var all_events = {"async": true,
               "crossDomain": true,
               "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
@@ -78,10 +78,10 @@ var currentElement;
             $.ajax(all_events).done(function (dataList) {
               // console.log(dataList);
                 console.log(dataList);
-                 var objects_length = dataList.length;
-
+                 var objects_length = dataList.events.length;
+                  console.log("The length is: ", objects_length);
                 for (i = 0; i < objects_length; i++){
-                      data = dataList[i];
+                      data = dataList.events[i];
                       toInsert = 
                       {
                           name: data.name.text,
@@ -97,6 +97,7 @@ var currentElement;
 
             shuffleArray(vibeList);
             var element = vibeList.pop()
+            console.log("This is the element "+ element);
             shown_list.push(element);
             initializeValues(element);
 
