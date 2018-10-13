@@ -13,7 +13,6 @@
 
 //   request.send();
 // }
-deleteAllCookies();
 
 var all_events = {
       "async": true,

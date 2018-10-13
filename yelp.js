@@ -1,4 +1,4 @@
-deleteAllCookies();
+
 var request = new XMLHttpRequest();
 	request.open("POST", "https://betgv.herokuapp.com/yelp", true);  
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
