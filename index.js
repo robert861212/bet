@@ -59,24 +59,9 @@ app.post('/yelp', function(request, response) {
       var lng = obj.lng.toString();
       var cat = obj.category;
       var distance = parseFloat(obj.distance) * 1000 * 1.6;
-      console.log("a");
+      // console.log("a");
       if (cat == 'restaurant')
       {
-			//       	client.search({
-			//     term: 'restaurants',
-			//     price: 1,
-			//     latitude: "42.4048",
-			//     longitude: "-71.1161",
-			//     open_now: true,
-			//     radius : 8000,
-			//     limit : 40
-			// }).then(response => {
-			// 	console.log("yes");
-			//   result = response.jsonBody.businesses;
-			// }).catch(e => {
-			//   console.log(e);
-			// });
-  //     	console.log("b");
       	client.search({
 	    term: 'restaurants',
 	    latitude: lat,
@@ -86,15 +71,45 @@ app.post('/yelp', function(request, response) {
 	    limit : 50
 		}).then(response => {
 			//sending response
-			console.log("c");
+			// console.log("c");
+		  result = response.jsonBody.businesses;
+		}).catch(e => {
+		  console.log(e);
+		});
+      } else if (cat == 'bars')
+      {
+      	client.search({
+	    term: 'bars',
+	    latitude: lat,
+	    longitude: lng,
+	    open_now: true,
+	    radius : distance,
+	    limit : 50
+		}).then(response => {
+			//sending response
+			// console.log("c");
+		  result = response.jsonBody.businesses;
+		}).catch(e => {
+		  console.log(e);
+		});
+      } else if (cat == 'shops')
+      {
+      	client.search({
+	    term: 'shops',
+	    latitude: lat,
+	    longitude: lng,
+	    open_now: true,
+	    radius : distance,
+	    limit : 50
+		}).then(response => {
+			//sending response
+			// console.log("c");
 		  result = response.jsonBody.businesses;
 		}).catch(e => {
 		  console.log(e);
 		});
       }
-      
-      
-    response.send(result);
+    	response.send(result);
    	}
    	// response.send(result);
 			
