@@ -292,11 +292,18 @@ app.get('/images/gotbet.png', function(request, response) {
    	response.sendFile("images/gotbet.png", {root:__dirname});
 });
 
-app.get('/images/homebg.pn', function(request, response) {
+app.get('/images/homebg.png', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
    	// response.set('Content-Type', 'text/html');
    	response.sendFile("images/homebg.png", {root:__dirname});
+});
+
+app.get('/images/star.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/star.png", {root:__dirname});
 });
 
 
