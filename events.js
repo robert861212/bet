@@ -77,8 +77,7 @@ var currentElement;
             }
 
 
-        }
-        GetAddress();
+        
 
             $.ajax(all_events).done(function (dataList) {
               // console.log(dataList);
@@ -95,6 +94,7 @@ var currentElement;
                           longitude: lng
             });
         }
+
                 // dataList.events.forEach( (data) => {vibeList.push(
                 //         {
                 //           name: "hh",
@@ -114,7 +114,9 @@ var currentElement;
             shown_list.push(element);
             console.log(element);
             initializeValues(element);
+    
     });
+          }
 
           
 nextButton.addEventListener("click", ()=>
