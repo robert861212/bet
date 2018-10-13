@@ -78,6 +78,7 @@ var currentElement;
 
             $.ajax(all_events).done(function (dataList) {
               console.log(dataList);
+                console.log(dataList);
                 dataList.events.forEach( (data) => {vibeList.push(
                         {
                           name: data.name.text,
