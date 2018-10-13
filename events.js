@@ -27,7 +27,7 @@ var lat =  -33.865143//getCookie("lat"); //
               "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
               "method": "GET",
               "headers": {}
-            }
+            };
 
 
 
