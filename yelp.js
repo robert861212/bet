@@ -91,6 +91,7 @@ request.onreadystatechange = function()
     if (request.readyState == 4 && request.status == 200)
     {
 	var string = request.responseText;
+	console.log(string);
 	var object = JSON.parse(string);
         var objects_length = object.length;
 
@@ -115,7 +116,7 @@ parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category=
     + getCookie("category") + "&distance=" + getCookie("distance") + ";";
 
 request.send(parameter);
-console.log(parameter);
+// console.log(parameter);
 
 next.addEventListener("click", ()=>
                       {
