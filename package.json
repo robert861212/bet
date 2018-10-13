@@ -1,0 +1,9 @@
+{
+  "name": "node-js-getting-startedp",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "validator": "latest"
+  }
+}
