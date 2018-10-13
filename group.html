@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 <!doctype html>
 
 <html lang="en">
@@ -16,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bet</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+     
 
     <!-- Script shit -->
     <script
@@ -34,21 +29,26 @@
         <ul class="main-nav" id="js-menu">
         </ul>
     </nav>
+    <style>
+    html {
+  background: url(background.png) no-repeat;
+  height: 50%;
+}</style>
 
 
 </head>
 
 <body>
 
-
-        <div class="row">
+        
+        <div class="row rectangle">
             <div class="column">
                     <div class="""slidecontainer">
-                        <input type="range" min="1" max="10000" value="50" class="slider" id="myRange">    
+                        <input type="range" min="1" max="10" value="4" class="slider" id="myRange">    
                     </div>
             </div>
             <div class="column">
-                <p>Distance: <span id="demo"></span> miles away</p>
+                <p style = "font-size:15px">Distance: <span id="demo"></span> miles away</p>
             </div>
         </div>
 
