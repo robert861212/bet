@@ -87,7 +87,7 @@ app.post('/yelp', function(request, response) {
 		}).then(response => {
 			//sending response
 			console.log("c");
-		  response.send(response.jsonBody.businesses);
+		  result = response.jsonBody.businesses;
 		}).catch(e => {
 		  console.log(e);
 		});
