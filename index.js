@@ -58,7 +58,7 @@ app.post('/yelp', function(request, response) {
       var lat = obj.lat.toString();
       var lng = obj.lng.toString();
       var cat = obj.category;
-      var distance = parseFloat(obj.distance);
+      var distance = parseFloat(obj.distance) x 1000 x 1.6;
       console.log("a");
       if (cat == 'restaurant')
       {
