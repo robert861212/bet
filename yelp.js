@@ -1,6 +1,9 @@
 document.addEventListener("touchstart", startTouch, false);
 document.addEventListener("touchmove", moveTouch, false);
-
+let lat_lng;
+let yelpDict = [];
+let shown_list = [];
+let currentElement;
 // Swipe Up / Down / Left / Right
 var initialX = null;
 var initialY = null;
@@ -29,7 +32,10 @@ function moveTouch(e) {
     // sliding horizontally
     if (diffX > 0) {
       // swiped left
-      // add action here
+      element = shown_list.shift();
+                              shown_list.push(currentElement);
+                              currentElement = element;
+                              initializeValues(currentElement);
       console.log("swiped left");
     } else {
       // swiped right
@@ -63,12 +69,9 @@ rating = document.getElementById("rating");
 cost = document.getElementById("cost");
 direction = document.getElementById("direction");
 call = document.getElementById("call_someone");
-nextButton = document.getElementById("next");
-prevButton = document.getElementById("previous");
-let lat_lng;
-let yelpDict = [];
-let shown_list = [];
-let currentElement;
+//nextButton = document.getElementById("next");//
+//prevButton = document.getElementById("previous");
+
 //console.log("start");
 
 function getCookie(cname) {
@@ -170,17 +173,17 @@ direction.addEventListener("click", ()=>
                       });
 
 
-nextButton.addEventListener("click", ()=>
-                      {
-                          currentElement = yelpDict.pop();
-                          shown_list.push(currentElement);
-                          initializeValues(currentElement);
-                      });
+// nextButton.addEventListener("click", ()=>
+//                       {
+//                           currentElement = yelpDict.pop();
+//                           shown_list.push(currentElement);
+//                           initializeValues(currentElement);
+//                       });
 
-prevButton.addEventListener("click", () =>
-                          {
-                              element = shown_list.shift();
-                              shown_list.push(currentElement);
-                              currentElement = element;
-                              initializeValues(currentElement);
-                          });
+// prevButton.addEventListener("click", () =>
+//                           {
+//                               element = shown_list.shift();
+//                               shown_list.push(currentElement);
+//                               currentElement = element;
+//                               initializeValues(currentElement);
+//                           });

@@ -4,6 +4,69 @@
     /*
     Get the location within using and fix location.within
     */
+document.addEventListener("touchstart", startTouch, false);
+document.addEventListener("touchmove", moveTouch, false);
+let lat_lng;
+let vibeList = [];
+var currentElement;
+let shown_list = [];
+
+// Swipe Up / Down / Left / Right
+var initialX = null;
+var initialY = null;
+
+function startTouch(e) {
+  initialX = e.touches[0].clientX;
+  initialY = e.touches[0].clientY;
+};
+
+function moveTouch(e) {
+  if (initialX === null) {
+    return;
+  }
+
+  if (initialY === null) {
+    return;
+  }
+
+  var currentX = e.touches[0].clientX;
+  var currentY = e.touches[0].clientY;
+
+  var diffX = initialX - currentX;
+  var diffY = initialY - currentY;
+
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    // sliding horizontally
+    if (diffX > 0) {
+      // swiped left
+      element = shown_list.shift();
+                              shown_list.push(currentElement);
+                              currentElement = element;
+                              initializeValues(currentElement);
+      console.log("swiped left");
+    } else {
+      // swiped right
+       currentElement = vibeList.pop();
+                          shown_list.push(currentElement);
+                          initializeValues(currentElement);
+      console.log("swiped right");
+    }
+  } else {
+    // sliding vertically
+    if (diffY > 0) {
+      // swiped up
+      console.log("swiped up");
+    } else {
+      // swiped down
+      console.log("swiped down");
+    }
+  }
+
+  initialX = null;
+  initialY = null;
+
+  e.preventDefault();
+};
 
 image_html = document.getElementById("image");
 title = document.getElementById("title");
@@ -12,12 +75,8 @@ address = document.getElementById("address");
 description = document.getElementById("description");
 direction = document.getElementById("direction");
 call = document.getElementById("call_someone");
-nextButton = document.getElementById("next");
-prevButton = document.getElementById("previous");
-let lat_lng;
-let vibeList = [];
-var currentElement;
-let shown_list = [];
+//nextButton = document.getElementById("next");
+//prevButton = document.getElementById("previous");
 
 
 
@@ -108,7 +167,7 @@ let shown_list = [];
 
     GetAddress();
 
-          
+   /*       
 nextButton.addEventListener("click", ()=>
                       {
                           currentElement = vibeList.pop();
@@ -123,7 +182,7 @@ prevButton.addEventListener("click", () =>
                               currentElement = element;
                               initializeValues(currentElement);
                           });
-    
+    */
 
     // console.log(getCookie("lat"));
     // console.log(getCookie("lng"));
