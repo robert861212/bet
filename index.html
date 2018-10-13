@@ -48,11 +48,22 @@
 </head>
 
 <body>
-    <br><input onclick="bars_page()"type="image" src="images/findvibes.png" name="image" width="100%" height="85%"><br>            
-    <br><input onclick="bars_page()"type="image" src="images/gotbet.png" name="image" width="100%" height="85%"><br>            
+    <br><input onclick="group_page()"type="image" src="images/findvibes.png" name="image" width="100%" height="85%"><br>            
+    <br><input onclick="bet_page()"type="image" src="images/gotbet.png" name="image" width="100%" height="85%"><br>            
 
 
 
 </body>
+<script>
+function group_page()
+{
+	window.location.href = "https://betgv.herokuapp.com/group";
+}
+
+function bet_page()
+{
+	window.location.href = "https://betgv.herokuapp.com/bet";
+}
+</script>
 </html>
 

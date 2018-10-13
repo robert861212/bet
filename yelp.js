@@ -113,11 +113,8 @@ function initializeValues(cElement)
   var price_len = cElement.length;
   console.log("The price is: ", price_len);
   for (i = 0; i < price_len; i++) {
-    var img = document.createElement("img");
-    img.src = "images/star.png";
-    img.style = "display: inline;";
-    console.log(img);
-    rating.appendChild(img);
+
+    cost.innerHTML += "<img style='display: inline;' src=images/star.png />";
   }
   //callibrate the rating and cost with the stars
   //img scaling
@@ -145,7 +142,7 @@ request.onreadystatechange = function()
                 rating: object[i].rating,
                 latitude: object[i].coordinates.latitude, //
                 longitude: object[i].coordinates.longitude, //
-                distance: object[i].distance, //
+                distance: object[i].distance.toFixed(2) / 1.609344 / 1000, //
                 image: object[i].image_url, //
                 location: object[i].location.address1 //
             });
