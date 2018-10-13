@@ -170,7 +170,6 @@ else {
     alert("Your browser does not support geolocation.");
 }
 
-\
 
 
 
