@@ -264,6 +264,13 @@ app.get('/images/bars.png', function(request, response) {
    	response.sendFile("images/bars.png", {root:__dirname});
 });
 
+app.get('/food.html', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("food.html", {root:__dirname});
+});
+
 
 
 app.listen(process.env.PORT || 3000);
