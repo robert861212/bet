@@ -156,7 +156,7 @@ app.get('/style_group.css', function(request, response) {
 app.get('/css/style.css', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
-   	// response.set('Content-Type', 'text/html');
+   	response.set('Content-Type', 'text/css');
    	response.sendFile("css/style.css", {root:__dirname});
 });
 
