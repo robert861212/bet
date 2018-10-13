@@ -55,8 +55,8 @@ app.post('/yelp', function(request, response) {
    	
    	if (obj.hasOwnProperty('lat') && obj.hasOwnProperty('lng') && obj.hasOwnProperty('category') && obj.hasOwnProperty('distance'))
    	{
-      var lat = obj.lat;
-      var lng = obj.lng;
+      var lat = obj.lat.toString();
+      var lng = obj.lng.toString();
       var cat = obj.category;
       var distance = parseFloat(obj.distance);
       console.log("a");
