@@ -41,11 +41,10 @@ var currentElement;
              var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
              //Loop through the cookies and return the cooki value if it find the cookie name
              for(var i=0; i<cArr.length; i++) {
-               var c = cArr[i].trim();
-        //         //If the name is the cookie string at position 0, we found the cookie and return the cookie value
-                 if (c.indexOf(name) == 0)
+                var c = cArr[i].trim();
+                if (c.indexOf(name) == 0)
                      return c.substring(name.length, c.length);
-                }
+              }
           }
     function shuffleArray(array) {
               for (var i = array.length - 1; i > 0; i--) {
@@ -56,7 +55,7 @@ var currentElement;
               }
           }
 
-      direction.addEventListener("click", ()=>
+  direction.addEventListener("click", ()=>
                       {
                         //load the google maps page passing in the latitude and longitude
                         window.location.replace("https://www.google.com/maps?q=" + lat_lng.lat+","+lat_lng.lng);
@@ -65,8 +64,8 @@ var currentElement;
 
     function GetAddress() {
         returnList = [];
-        var lat =  getCookie("lat"); //-33.865143
-        var lng =  getCookie("lng"); //151.209900
+        var lat =  -33.865143//getCookie("lat"); //
+        var lng =  51.209900//getCookie("lng"); //151.209900
         var sliderValue = 500; //getCookie("distance");
         var all_events = {
               "async": true,
@@ -75,39 +74,22 @@ var currentElement;
               "method": "GET",
               "headers": {}
             }
-
-
-        
-
             $.ajax(all_events).done(function (dataList) {
               // console.log(dataList);
                 console.log(dataList);
-                       var objects_length = datalist.length;
+                 var objects_length = datalist.length;
 
-        for (i = 0; i < objects_length; i++){
-            vibeList.push({
+                for (i = 0; i < objects_length; i++){
+                      vibeList.push({
                           name: data.name.text,
                           location: data.start.timezone,
                           picture: data.logo.url,
                           description: data.description.html,
                           latitude: lat,
                           longitude: lng
+                      });
+                }
             });
-        }
-        });
-
-                // dataList.events.forEach( (data) => {vibeList.push(
-                //         {
-                //           name: "hh",
-                //           // name: data.name.text,
-                //           location: data.start.timezone,
-                //           picture: data.logo.url,
-                //           description: data.description.html,
-                //           latitude: lat,
-                //           longitude: lng
-                //         }
-                // )});
-              //} );
             console.log(vibeList);
 
             shuffleArray(vibeList);
@@ -117,9 +99,9 @@ var currentElement;
             initializeValues(element);
     
     
-          }
+    }
 
-          GetAddress();
+    GetAddress();
 
           
 nextButton.addEventListener("click", ()=>
