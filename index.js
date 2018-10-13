@@ -306,6 +306,13 @@ app.get('/images/star.png', function(request, response) {
    	response.sendFile("images/star.png", {root:__dirname});
 });
 
+app.get('/images/dollar.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/dollar.png", {root:__dirname});
+});
+
 
 
 

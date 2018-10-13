@@ -98,7 +98,7 @@ function initializeValues(cElement)
 {
 
   title.innerHTML = cElement.name;
-  distance.innerHTML = Math.floor(cElement.distance) + "miles away";
+  distance.innerHTML = Math.floor(cElement.distance) + " miles away";
   address.innerHTML = cElement.location;
   call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
   image_html.innerHTML = "<img src="+ cElement.image + " />";
@@ -114,7 +114,7 @@ function initializeValues(cElement)
   console.log("The price is: ", price_len);
   for (i = 0; i < price_len; i++) {
 
-    cost.innerHTML += "<img style='display: inline;' src=images/star.png />";
+    cost.innerHTML += "<img style='display: inline;' src=images/dollar.png />";
   }
   //callibrate the rating and cost with the stars
   //img scaling
