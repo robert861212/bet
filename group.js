@@ -5,10 +5,10 @@ if (navigator.geolocation) {
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
 		deleteAllCookies();
-		document.cookie += "lat=" + myLat + ";"; 
-		document.cookie += "lng=" + myLng + ";"; 
+		document.cookie += ";lat=" + myLat; 
+		document.cookie += ";lng=" + myLng; 
 		var distance = document.getElementById("myRange").value;
-		document.cookie += "distance=" + distance + ";"; 
+		document.cookie += ";distance=" + distance; 
 	    });
 	}
 else {
@@ -18,25 +18,25 @@ else {
 function rest_page()
 {
 	window.location.href = "https://betgv.herokuapp.com/yelp";
-	document.cookie += "category=restaurants;" 
+	document.cookie += ";category=restaurants" 
 }
 
 function bars_page()
 {
 	window.location.href = "https://betgv.herokuapp.com/yelp";
-	document.cookie += "category=bars;" 
+	document.cookie += ";category=bars" 
 }
 
 function shops_page()
 {
 	window.location.href = "https://betgv.herokuapp.com/yelp";
-	document.cookie += "category=shops;" 
+	document.cookie += ";category=shops" 
 }
 
 function events_page()
 {
 	window.location.href = "https://betgv.herokuapp.com/events";
-	document.cookie += "category=events;" 
+	document.cookie += ";category=events" 
 }
 
 function deleteAllCookies() {
