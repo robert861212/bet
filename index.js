@@ -355,7 +355,7 @@ app.get('/images/dollar@2x.png', function(request, response) {
 });app.get('/iimages/gotbet.svg', function(request, response) {
    response.header("Access-Control-Allow-Origin", "*");
       response.header("Access-Control-Allow-Headers", "X-Requested-With");
-      // response.set('Content-Type', 'text/html');
+      response.set('Content-Type', 'text/svg');
       response.sendFile("images/gotbet.svg", {root:__dirname});
 });app.get('/images/rest.svg', function(request, response) {
    response.header("Access-Control-Allow-Origin", "*");
