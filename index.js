@@ -60,7 +60,8 @@ app.post('/yelp', function(request, response) {
       var distance = parseFloat(obj.distance);
 
       if (cat == 'restaurant')
-      client.search({
+      {
+      	client.search({
 	    term: 'restaurants',
 	    latitude: lat,
 	    longitude: lng,
@@ -73,6 +74,8 @@ app.post('/yelp', function(request, response) {
 		}).catch(e => {
 		  console.log(e);
 		});
+      }
+      
       
 
    	}
