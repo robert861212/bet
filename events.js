@@ -113,7 +113,7 @@ var currentElement;
             shown_list.push(element);
             console.log(element);
             initializeValues(element);
-    }
+    });
 
           GetAddress();
 nextButton.addEventListener("click", ()=>
