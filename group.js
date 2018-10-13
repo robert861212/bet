@@ -43,3 +43,11 @@ function rest_page()
 //     //If we get to this point, that means the cookie wasn't find in the look, we return an empty string.
 //     return "";
 // }
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
