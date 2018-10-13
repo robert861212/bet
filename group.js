@@ -21,13 +21,13 @@ function rest_page()
 
 function bars_page()
 {
-	window.location.href = "https://betgv.herokuapp.com/bars";
+	window.location.href = "https://betgv.herokuapp.com/yelp";
 	document.cookie += "category=bars;" 
 }
 
 function shops_page()
 {
-	window.location.href = "https://betgv.herokuapp.com/shops";
+	window.location.href = "https://betgv.herokuapp.com/yelp";
 	document.cookie += "category=shops;" 
 }
 
