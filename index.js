@@ -70,9 +70,7 @@ app.post('/yelp', function(request, response) {
 			    radius : 8000,
 			    limit : 40
 			}).then(response => {
-			  const firstResult = response.jsonBody.businesses;
-			  const prettyJson = JSON.stringify(firstResult, null, 4);
-			  console.log(prettyJson);
+			  response.send(response.jsonBody.businesses);
 			}).catch(e => {
 			  console.log(e);
 			});
