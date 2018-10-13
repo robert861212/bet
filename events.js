@@ -97,7 +97,17 @@ var currentElement;
             var element = vibeList.pop()
             shown_list.push(element);
             console.log(element);
-            initializeValues(element);
+            // initializeValues(element);
+
+
+            title.innerHTML = element.name;
+        distance.innerHTML = Math.floor(element.distance) + " miles away";
+        address.innerHTML = element.location;
+        call.href="tel:"+ (element.phone).replace(/\D/g,''); //stripping non numeric characters
+        image_html.innerHTML = "<img src='"+ element.picture + "' style='height: 100%; width: 100%; object-fit: contain' />";
+        console.log(image_html.src);
+        lat_lng = {lat: element.latitude, lng: element.longitude};
+        description.innerHTML = element.description;
     
     
     }
