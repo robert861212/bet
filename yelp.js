@@ -1,5 +1,5 @@
-document.getElementById("image").addEventListener("touchstart", startTouch, false);
-document.getElementById("image").addEventListener("touchmove", moveTouch, false);
+document.addEventListener("touchstart", startTouch, false);
+document.addEventListener("touchmove", moveTouch, false);
 
 // Swipe Up / Down / Left / Right
 var initialX = null;
@@ -33,7 +33,9 @@ function moveTouch(e) {
       console.log("swiped left");
     } else {
       // swiped right
-      // add action here
+       currentElement = yelpDict.pop();
+                          shown_list.push(currentElement);
+                          initializeValues(currentElement);
       console.log("swiped right");
     }
   } else {
