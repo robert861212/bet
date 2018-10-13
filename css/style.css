@@ -2,6 +2,8 @@ body, h1,h2,h3,h4,h5,p {
   font-family: "avenir";
   color: #93D5D5;}
 
+
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -10,9 +12,10 @@ body, h1,h2,h3,h4,h5,p {
   
  
   .navbar {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: lighter;
     padding-bottom: 5%;
+    padding-top: 5%;
   }
   
   .main-nav {
@@ -20,12 +23,10 @@ body, h1,h2,h3,h4,h5,p {
     display: none;
   }
   
-  .nav-links,
-  .logo {
-    text-decoration: none;
-    color: white;
-  }
-  
+
+
+  .nav-menu{ width: 100%; text-align: center; }
+
   
   
   .logo {
@@ -177,3 +178,65 @@ body, h1,h2,h3,h4,h5,p {
 }
 
 
+/* Buttons for call + directions */
+.call_dir_button {
+  width: 100%;
+  height: 58.2px;
+  border-radius: 14px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+  background-image: linear-gradient(111deg, #93d5d5, #6dcccc);
+}
+
+
+/* Item Title  */
+.item-title {
+  font-family: "avenir";
+  color: #93D5D5;
+  font-size: 25px;
+  padding: 2%;
+
+}  
+
+/* Item Title  */
+.distance-text{
+  font-family: "avenir";
+  color: #93D5D5;
+  font-size: 13px;
+  padding: 2%;
+}  
+
+/* Item Title  */
+.address-text{
+  font-family: "avenir";
+  color: #707070;
+  font-size: 17px;
+  padding: 3%;
+}  
+  
+  
+  
+  
+
+
+/* Button Word */
+.button_text {
+  font-family: "avenir";
+  color: white;
+  font-size: 15px;
+  padding: 3%;
+
+  
+}
+
+.description{
+  background:#D1F0F0;
+  padding-top: 3%; 
+}
+
+.description-title{
+  font-family: "avenir";
+  color: white;
+  font-size: 15px;
+  padding: 3%;
+  text-align: center;
+}
