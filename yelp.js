@@ -16,7 +16,7 @@ var request = new XMLHttpRequest();
 	parameter = "lat=" + getCookie("lat") + "&lng=" + getCookie("lng") + "&category=" + getCookie("category")
 	+ "&distance=" + getCookie("distance") + ";";
 	request.send(parameter);
-
+	console.log(parameter);
 // function deleteAllCookies() {
 //     var cookies = document.cookie.split(";");
 
