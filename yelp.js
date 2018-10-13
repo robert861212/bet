@@ -165,7 +165,7 @@ request.send(parameter);
 direction.addEventListener("click", ()=>
                       {
                         //load the google maps page passing in the latitude and longitude
-                        window.location.replace("http://stackoverflow.com?q="lat_lng.lat+","+lat_lng.lng);
+                        window.location.replace("http://stackoverflow.com?q=" + lat_lng.lat+","+lat_lng.lng);
                       });
 
 
