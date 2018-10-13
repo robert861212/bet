@@ -4,14 +4,27 @@
     /*
     Get the location within using and fix location.within
     */
-    div = document.getElementById("show_vibe");
-    next_button = document.getElementById("next");
-    previous_button = document.getElementById("previous");
+
+image_html = document.getElementById("image");
+title = document.getElementById("title");
+distance = document.getElementById("distance");
+address = document.getElementById("address");
+description = document.getElementById("description");
+direction = document.getElementById("direction");
+call = document.getElementById("call_someone");
+nextButton = document.getElementById("next");
+prevButton = document.getElementById("previous");
     shown_list = []
     vibeList = []
     var currentElement;
 
+
+
+
+
     GetAddress();
+
+    function 
     function getCookie(cname) {
              var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
              var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
