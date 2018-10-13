@@ -18,16 +18,8 @@ let lat_lng;
 let shown_list = [];
 let vibeList = [];
 var currentElement;
-var lat =  -33.865143//getCookie("lat"); //
-        var lng =  51.209900//getCookie("lng"); //151.209900
-        var sliderValue = 500; //getCookie("distance");
-        var all_events = {
-              "async": true,
-              "crossDomain": true,
-              "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
-              "method": "GET",
-              "headers": {}
-            };
+
+
 
 
 
@@ -54,49 +46,7 @@ var lat =  -33.865143//getCookie("lat"); //
                   array[j] = temp;
               }
           }
-
-  direction.addEventListener("click", ()=>
-                      {
-                        //load the google maps page passing in the latitude and longitude
-                        window.location.replace("https://www.google.com/maps?q=" + lat_lng.lat+","+lat_lng.lng);
-                      });
-
-
-    function GetAddress() {
-        returnList = [];
-        
-            $.ajax({"async": true,
-              "crossDomain": true,
-              "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
-              "method": "GET",
-              "headers": {}}).done(function (dataList) {
-              // console.log(dataList);
-                console.log(dataList);
-                 var objects_length = dataList.length;
-
-                for (i = 0; i < objects_length; i++){
-                      data = dataList[i];
-                      toInsert = 
-                      {
-                        name: data.name.text,
-                          location: data.start.timezone,
-                          picture: data.logo.url,
-                          description: data.description.html,
-                          latitude: lat,
-                          longitude: lng
-                        };
-                      vibeList.insert(0, toInsert);
-                }
-            });
-            console.log(vibeList);
-
-            shuffleArray(vibeList);
-            var element = vibeList.pop()
-            shown_list.push(element);
-            console.log(element);
-            // initializeValues(element);
-
-
+    function initializeValues(element){
         title.innerHTML = element.name;
         distance.innerHTML = Math.floor(element.distance) + " miles away";
         address.innerHTML = element.location;
@@ -106,8 +56,54 @@ var lat =  -33.865143//getCookie("lat"); //
         lat_lng = {lat: element.latitude, lng: element.longitude};
         description.innerHTML = element.description;
     
-    
-    }
+        }
+ 
+   direction.addEventListener("click", ()=>
+                      {
+                        //load the google maps page passing in the latitude and longitude
+                        window.location.replace("https://www.google.com/maps?q=" + lat_lng.lat+","+lat_lng.lng);
+                      });
+
+
+    function GetAddress() {
+      var lat =  -33.865143//getCookie("lat"); //
+        var lng =  51.209900//getCookie("lng"); //151.209900
+        var sliderValue = 500; //getCookie("distance");
+        returnList = [];
+        var all_events = {"async": true,
+              "crossDomain": true,
+              "url": "https://www.eventbriteapi.com/v3/events/search/?location.latitude="+lat+"&location.longitude="+lng+"&location.within="+sliderValue+"mi&token=3SI6R4C6ASYRYVKFMH57",
+              "method": "GET",
+              "headers": {}}
+            $.ajax(all_events).done(function (dataList) {
+              // console.log(dataList);
+                console.log(dataList);
+                 var objects_length = dataList.length;
+
+                for (i = 0; i < objects_length; i++){
+                      data = dataList[i];
+                      toInsert = 
+                      {
+                          name: data.name.text,
+                          location: data.start.timezone,
+                          picture: data.logo.url,
+                          description: data.description.html,
+                          latitude: lat,
+                          longitude: lng
+                        };
+                      vibeList.push(toInsert);
+                }
+
+
+            shuffleArray(vibeList);
+            var element = vibeList.pop()
+            shown_list.push(element);
+            InitializeElement(element);
+
+            });
+            
+            // initializeValues(element);
+          }
 
     GetAddress();
 
