@@ -80,6 +80,7 @@ var currentElement;
                  var objects_length = datalist.length;
 
                 for (i = 0; i < objects_length; i++){
+                      data = dataList[i];
                       vibeList.push({
                           name: data.name.text,
                           location: data.start.timezone,
