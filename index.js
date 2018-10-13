@@ -58,9 +58,10 @@ app.post('/yelp', function(request, response) {
       var lng = obj.lng;
       var cat = obj.category;
       var distance = parseFloat(obj.distance);
-
+      console.log("a");
       if (cat == 'restaurant')
       {
+      	console.log("b");
       	client.search({
 	    term: 'restaurants',
 	    latitude: lat,
@@ -70,6 +71,7 @@ app.post('/yelp', function(request, response) {
 	    limit : 50
 		}).then(response => {
 			//sending response
+			console.log("c");
 		  response.send(response.jsonBody.businesses);
 		}).catch(e => {
 		  console.log(e);
