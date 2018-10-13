@@ -1,6 +1,5 @@
 var myLat;
 var myLng;
-deleteAllCookies();
 if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
 		myLat = position.coords.latitude;
