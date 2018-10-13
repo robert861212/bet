@@ -4,7 +4,7 @@
   "dependencies": {
     "express": "latest",
     "body-parser": "latest",
-    "validator": "latest"
-    
+    "validator": "latest",
+    "yelp-fusion": "^2.0.2"
   }
 }
