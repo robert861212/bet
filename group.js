@@ -13,6 +13,9 @@ else {
 		alert("your browser does not support geolocation");
 }
 
+var distance = document.getElementById("myRange").value;
+document.cookie += "distance=" + distance + ";"; 
+
 function rest_page()
 {
 	window.location.href = "https://betgv.herokuapp.com/yelp";
