@@ -119,7 +119,7 @@ if (navigator.geolocation) {
                 console.log(rand_action + " " + object[0].name);
                 // console.log(object[0].image_url);
 
-                document.getElementById("description-title").innerHTML = rand_action + " " + object[0].name + "!";
+                //document.getElementById("description-title").innerHTML = rand_action + " " + object[0].name + "!";
                 // document.getElementById("image").innerHTML = "<image src=" + object[0].image_url + ">" ;
             }
         }
