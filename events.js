@@ -77,11 +77,12 @@ var currentElement;
             }
 
             $.ajax(all_events).done(function (dataList) {
-              console.log(dataList);
+              // console.log(dataList);
                 console.log(dataList);
                 dataList.events.forEach( (data) => {vibeList.push(
                         {
-                          name: data.name.text,
+                          name: "hh",
+                          // name: data.name.text,
                           location: data.start.timezone,
                           picture: data.logo.url,
                           description: data.description.html,
@@ -89,8 +90,8 @@ var currentElement;
                           longitude: lng
                         }
                 )});
-
               } );
+
             shuffleArray(vibeList);
             var element = vibeList.pop()
             shown_list.push(element);
