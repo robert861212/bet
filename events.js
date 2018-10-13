@@ -15,7 +15,7 @@ call = document.getElementById("call_someone");
 nextButton = document.getElementById("next");
 prevButton = document.getElementById("previous");
 let lat_lng;
-let shown_list;
+let shown_list = [];
 let vibeList = [];
 var currentElement;
 
