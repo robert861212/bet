@@ -17,6 +17,7 @@ function getCookie(cname) {
       }
 
 function GetAddress() {
+    returnList = [];
     var lat = -33.865143 //getCookie("lat");
     var lng = 151.209900 //getCookie("lng");
 
@@ -29,18 +30,9 @@ function GetAddress() {
         }
 
         $.ajax(all_events).done(function (dataList) {
-            console.log(dataList);
-
-            dataList.events.forEach(
-              function (data) {
-                console.log(data);
-              var content = "<h2>" + data.name.text + "</h2>" + data.description.html;
-              $("#eventbrite").append(content);
-            }
-
-          );
-
-          });
+            dataList.events.forEach( (data) => {returnList.append(data)}); );
+        return returnList;
+    });
 
 }
 //&location.within=10000km&location.longitude=42.39674&location.latitude=-71.121815",
