@@ -139,6 +139,13 @@ app.get('/group', function(request, response) {
    	response.sendFile("group.html", {root:__dirname});
 });
 
+app.get('/group.js', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("group.js", {root:__dirname});
+});
+
 app.get('/style_group.css', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -157,7 +164,7 @@ app.get('/js/scripts', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
    	// response.set('Content-Type', 'text/html');
-   	response.sendFile("js/scripts", {root:__dirname});
+   	response.sendFile("js/scripts.js", {root:__dirname});
 });
 
 app.get('/events', function(request, response) {
