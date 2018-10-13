@@ -31,7 +31,7 @@ body, h1,h2,h3,h4,h5,p {
   .logo {
     display: inline-block;
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 10%;
     margin-left: 24px;
   }
   
@@ -51,7 +51,7 @@ body, h1,h2,h3,h4,h5,p {
     .navbar {
       display: flex;
       justify-content: space-between;
-      padding-bottom: 0;
+      /* padding-bottom: 0; */
       height: 70px;
       align-items: center;
     }
@@ -101,7 +101,7 @@ body, h1,h2,h3,h4,h5,p {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
   margin-left: auto;
-    margin-right: auto
+  margin-right: auto
 }
 
 /* Slider */
@@ -151,13 +151,25 @@ body, h1,h2,h3,h4,h5,p {
 }
 
 /* Create two equal columns that sits next to each other */
-.column {
+
+/* Column for the slider */
+.column1 {
     flex: 50%;
-    padding: 10px;
+    padding: 3% 3% 1% 3%;
     height: 30%;
 }
 
+/* Column for options */
+.column {
+  flex: 50%;
+  padding: 1% 1% 0 1%;
+  height: 10%;
+}
 
 
+.slider_box {
+  padding-bottom: 5%;
+  padding-top: 3%
+}
 
 
