@@ -60,7 +60,7 @@ app.post('/yelp_bet', function(request, response) {
       var distance = 2.5 * 1000 * 1.6;
       
       	client.search({
-	    term: word,
+	    term: place,
 	    latitude: lat,
 	    longitude: lng,
 	    open_now: true,
