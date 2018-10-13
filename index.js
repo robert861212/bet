@@ -174,6 +174,40 @@ app.get('/yelp.js', function(request, response) {
    	response.sendFile("yelp.js", {root:__dirname});
 });
 
+app.get('/background.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("background.png", {root:__dirname});
+});
+
+app.get('/images/shops.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/shops.png", {root:__dirname});
+});
+
+app.get('/images/rest.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/rest.png", {root:__dirname});
+});
+
+app.get('/images/events.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/events.png", {root:__dirname});
+});
+
+app.get('/images/bars.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/bars.png", {root:__dirname});
+});
 
 
 
