@@ -66,8 +66,8 @@ let shown_list = [];
     function GetAddress() {
       
       
-      var lat =  -33.865143//getCookie("lat"); //
-        var lng =  151.209900//getCookie("lng"); //151.209900
+      var lat =  getCookie("lat"); //
+        var lng =  getCookie("lng"); //151.209900
         var sliderValue = 500; //getCookie("distance");
         
         var all_events = {"async": true,
