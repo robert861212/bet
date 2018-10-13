@@ -71,6 +71,7 @@ app.post('/yelp', function(request, response) {
 			    radius : 8000,
 			    limit : 40
 			}).then(response => {
+				console.log("yes");
 			  result = response.jsonBody.businesses;
 			}).catch(e => {
 			  console.log(e);
