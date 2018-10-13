@@ -59,8 +59,8 @@ app.post('/yelp', function(request, response) {
       var lng = obj.lng.toString();
       var cat = obj.category;
       var distance = parseFloat(obj.distance) * 1000 * 1.6;
-      // console.log("a");
-      if (cat == 'restaurant')
+      console.log("a");
+      if (cat == 'restaurants')
       {
       	client.search({
 	    term: 'restaurants',
@@ -71,7 +71,7 @@ app.post('/yelp', function(request, response) {
 	    limit : 50
 		}).then(response => {
 			//sending response
-			// console.log("c");
+			console.log("b");
 		  result = response.jsonBody.businesses;
 		}).catch(e => {
 		  console.log(e);
@@ -87,7 +87,7 @@ app.post('/yelp', function(request, response) {
 	    limit : 50
 		}).then(response => {
 			//sending response
-			// console.log("c");
+			console.log("c");
 		  result = response.jsonBody.businesses;
 		}).catch(e => {
 		  console.log(e);
@@ -103,7 +103,7 @@ app.post('/yelp', function(request, response) {
 	    limit : 50
 		}).then(response => {
 			//sending response
-			// console.log("c");
+			console.log("d");
 		  result = response.jsonBody.businesses;
 		}).catch(e => {
 		  console.log(e);
