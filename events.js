@@ -71,14 +71,16 @@ var currentElement;
 
                 for (i = 0; i < objects_length; i++){
                       data = dataList[i];
-                      vibeList.push({
-                          name: data.name.text,
+                      toInsert = 
+                      {
+                        name: data.name.text,
                           location: data.start.timezone,
                           picture: data.logo.url,
                           description: data.description.html,
                           latitude: lat,
                           longitude: lng
-                      });
+                        };
+                      vibeList.insert(0, toInsert);
                 }
             });
             console.log(vibeList);
