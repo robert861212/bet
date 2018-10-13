@@ -115,69 +115,10 @@ app.post('/yelp', function(request, response) {
 			
 });
 
-
-
-// client.search({
-//     term: 'restaurants',
-//     price: 1,
-//     latitude: "42.4048",
-//     longitude: "-71.1161",
-//     open_now: true,
-//     radius : 8000,
-//     limit : 40
-// }).then(response => {
-//   const firstResult = response.jsonBody.businesses;
-//   const prettyJson = JSON.stringify(firstResult, null, 4);
-//   console.log(prettyJson);
-// }).catch(e => {
-//   console.log(e);
-// });
-
-// client.search({
-//     term: 'bars',
-//     price: 1,
-//     latitude: "42.4048",
-//     longitude: "-71.1161",
-//     open_now: true,
-//     radius : 8000
-// }).then(response => {
-//     const secondResult = response.jsonBody.businesses;
-//     const prettyJson = JSON.stringify(secondResult, null, 4);
-//     console.log(prettyJson);
-// }).catch(e => {
-//     console.log(e);
-// });
-
-// client.search({
-//     term: 'shops',
-//     price: 1,
-//     latitude: "42.4048",
-//     longitude: "-71.1161",
-//     open_now: true,
-//     radius : 8000
-// }).then(response => {
-//     const thirdResult = response.jsonBody.businesses;
-//     const prettyJson = JSON.stringify(thirdResult, null, 4);
-//     console.log(prettyJson);
-// }).catch(e => {
-//     console.log(e);
-// });
-
-
-
-
-
-
-
-
-
-
-
-
 app.get('/', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
-   	response.set('Content-Type', 'text/html');
+   	// response.set('Content-Type', 'text/html');
 
    	response.sendFile("index.html", {root:__dirname});
 			
@@ -186,19 +127,107 @@ app.get('/', function(request, response) {
 app.get('/bet', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
-   	response.set('Content-Type', 'text/html');
+   	// response.set('Content-Type', 'text/html');
 
-   	response.sendFile("bet.html", {root:__dirname});
-			
+   	response.sendFile("bet.html", {root:__dirname});		
 });
 
 app.get('/group', function(request, response) {
 	response.header("Access-Control-Allow-Origin", "*");
    	response.header("Access-Control-Allow-Headers", "X-Requested-With");
-   	response.set('Content-Type', 'text/html');
-
+   	// response.set('Content-Type', 'text/html');
    	response.sendFile("group.html", {root:__dirname});
-			
+});
+
+app.get('/group.js', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("group.js", {root:__dirname});
+});
+
+app.get('/style_group.css', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("style_group.css", {root:__dirname});
+});
+
+app.get('/css/style.css', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	response.set('Content-Type', 'text/css');
+   	response.sendFile("css/style.css", {root:__dirname});
+});
+
+app.get('/js/scripts', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("js/scripts.js", {root:__dirname});
+});
+
+app.get('/events', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("events.html", {root:__dirname});
+});
+
+app.get('/events.js', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("events.js", {root:__dirname});
+});
+
+app.get('/yelp', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("yelp.html", {root:__dirname});
+});
+
+app.get('/yelp.js', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("yelp.js", {root:__dirname});
+});
+
+app.get('/background.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("background.png", {root:__dirname});
+});
+
+app.get('/images/shops.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/shops.png", {root:__dirname});
+});
+
+app.get('/images/rest.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/rest.png", {root:__dirname});
+});
+
+app.get('/images/events.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/events.png", {root:__dirname});
+});
+
+app.get('/images/bars.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/bars.png", {root:__dirname});
 });
 
 
