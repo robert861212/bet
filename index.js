@@ -44,6 +44,39 @@ const apiKey = 'SpJmEVEugu3-OUeP_w73yPHrghCRFvB31oy40Wvwz66wnXmc5I9l2iBbFLYo1Fkk
 // Yelp Fusion API Client
 const client = yelp.client(apiKey);
 
+let bet;
+app.post('/yelp', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	response.set('Content-Type', 'text/html');
+	// console.log("h");
+   	var obj = request.body;
+   	
+   	if (obj.hasOwnProperty('lat') && obj.hasOwnProperty('lng') && obj.hasOwnProperty('word'))
+   	{
+      var lat = obj.lat.toString();
+      var lng = obj.lng.toString();
+      var word = obj.word;
+      var distance = 2.5 * 1000 * 1.6;
+      
+      	client.search({
+	    term: word,
+	    latitude: lat,
+	    longitude: lng,
+	    open_now: true,
+	    radius : distance,
+	    limit : 1
+		}).then(response => {
+			//sending response
+			console.log("b");
+		  result = response.jsonBody.businesses;
+		}).catch(e => {
+		  console.log(e);
+		});
+      
+    	response.send(result);
+   	}
+});
 
 let result;
 app.post('/yelp', function(request, response) {
