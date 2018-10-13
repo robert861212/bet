@@ -11,7 +11,10 @@ else {
 		alert("your browser does not support geolocation");
 }
 
-
+function rest_page()
+{
+	window.location.href = "https://betgv.herokuapp.com/yelp";
+}
 
 // function deleteAllCookies() {
 //     var cookies = document.cookie.split(";");
