@@ -15,8 +15,8 @@ call = document.getElementById("call_someone");
 nextButton = document.getElementById("next");
 prevButton = document.getElementById("previous");
 let lat_lng;
-let shown_list = []
-let vibeList = []
+let shown_list;
+let vibeList;
 var currentElement;
 
 
@@ -25,17 +25,7 @@ var currentElement;
 
     GetAddress();
 
-    function initializeValues(cElement){
-        title.innerHTML = cElement.name;
-        distance.innerHTML = Math.floor(cElement.distance) + " miles away";
-        address.innerHTML = cElement.location;
-        call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
-        image_html.innerHTML = "<img src='"+ cElement.picture + "' style='height: 100%; width: 100%; object-fit: contain' />";
-        console.log(image_html.src);
-        lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
-        description.innerHTML = cElement.description;
-
-    }
+   
     function getCookie(cname) {
              var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
              var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
@@ -95,10 +85,18 @@ var currentElement;
             var element = vibeList.pop()
             shown_list.push(element);
             initializeValues(element);
-
+    }
+ function initializeValues(cElement){
+        title.innerHTML = cElement.name;
+        distance.innerHTML = Math.floor(cElement.distance) + " miles away";
+        address.innerHTML = cElement.location;
+        call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
+        image_html.innerHTML = "<img src='"+ cElement.picture + "' style='height: 100%; width: 100%; object-fit: contain' />";
+        console.log(image_html.src);
+        lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
+        description.innerHTML = cElement.description;
 
     }
-
       
 nextButton.addEventListener("click", ()=>
                       {
