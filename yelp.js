@@ -13,7 +13,7 @@ var request = new XMLHttpRequest();
 			console.log(string);
 		}
 	}
-	parameter = "lat=0&lng=0&category=restaurant&distance=5;"
+	parameter = "lat=42.4048&lng=-71.1161&category=restaurant&distance=5;"
 	request.send(parameter);
 
 // function deleteAllCookies() {
