@@ -107,11 +107,13 @@ function initializeValues(cElement)
 
   var rating_len = Math.floor(cElement.rating);
   console.log("The rating is: ", rating_len)
+  rating.innerHTML = "";
   for (i = 0; i < rating_len; i++) {
   	rating.innerHTML += "<img style='display: inline;' src=images/star.png />";
   }
-  var price_len = cElement.length;
+  var price_len = cElement.price.length;
   console.log("The price is: ", price_len);
+  cost.innerHTML = "";
   for (i = 0; i < price_len; i++) {
 
     cost.innerHTML += "<img style='display: inline;' src=images/dollar.png />";
