@@ -271,6 +271,36 @@ app.get('/food.html', function(request, response) {
    	response.sendFile("food.html", {root:__dirname});
 });
 
+app.get('/css/vibes.css', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("css/vibes.css", {root:__dirname});
+});
+
+app.get('/images/findvibes.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/findvibes.png", {root:__dirname});
+});
+
+app.get('/images/gotbet.png', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/gotbet.png", {root:__dirname});
+});
+
+app.get('/images/homebg.pn', function(request, response) {
+	response.header("Access-Control-Allow-Origin", "*");
+   	response.header("Access-Control-Allow-Headers", "X-Requested-With");
+   	// response.set('Content-Type', 'text/html');
+   	response.sendFile("images/homebg.png", {root:__dirname});
+});
+
+
+
 
 
 app.listen(process.env.PORT || 3000);
