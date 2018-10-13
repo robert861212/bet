@@ -81,7 +81,7 @@ var currentElement;
                 console.log(dataList);
                 dataList.events.forEach( (data) => {vibeList.push(
                         {
-                          name: data.name.text,
+                          name: data.name.html,
                           location: data.start.timezone,
                           picture: data.logo.url,
                           description: data.description.html,
