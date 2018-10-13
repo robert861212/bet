@@ -6,15 +6,14 @@ if (navigator.geolocation) {
 		myLng = position.coords.longitude;
 		deleteAllCookies();
 		document.cookie += "lat=" + myLat + ";"; 
-		document.cookie += "lng=" + myLng + ";"; ;
+		document.cookie += "lng=" + myLng + ";"; 
+		var distance = document.getElementById("myRange").value;
+		document.cookie += "distance=" + distance + ";"; 
 	    });
 	}
 else {
 		alert("your browser does not support geolocation");
 }
-
-var distance = document.getElementById("myRange").value;
-document.cookie += "distance=" + distance + ";"; 
 
 function rest_page()
 {
