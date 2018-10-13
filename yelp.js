@@ -101,22 +101,22 @@ function initializeValues(cElement)
   distance.innerHTML = Math.floor(cElement.distance) + "miles away";
   address.innerHTML = cElement.location;
   call.href="tel:"+ (cElement.phone).replace(/\D/g,''); //stripping non numeric characters
-  image_html.src = cElement.image;
+  image_html.innerHTML = "<img src="+ cElement.image + " />";
   console.log(image_html.src);
   lat_lng = {lat: cElement.latitude, lng: cElement.longitude};
 
   var rating_len = Math.floor(cElement.rating);
+  console.log("The rating is: ", rating_len)
   for (i = 0; i < rating_len; i++) {
-    var img = document.createElement("img");
-    img.style = "images/star.png";
-    img.style = "display: inline;";
-    rating.appendChild(img);
+  	rating.innerHTML += "<img style='display: inline;' src=images/star.png />";
   }
   var price_len = cElement.length;
+  console.log("The price is: ", price_len);
   for (i = 0; i < price_len; i++) {
     var img = document.createElement("img");
     img.src = "images/star.png";
     img.style = "display: inline;";
+    console.log(img);
     rating.appendChild(img);
   }
   //callibrate the rating and cost with the stars
